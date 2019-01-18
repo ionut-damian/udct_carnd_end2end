@@ -50,7 +50,7 @@ The model.py file contains the code for training and saving the convolution neur
 
 #### 1. An appropriate model architecture has been employed
 
-The model architecture is based on nVidia's *End-to-End Deep Learning for Self-Driving Cars* model. It consists of 5 convolutional layers and 4 fully connected layers.
+The model architecture is based on nVidia's [End-to-End Deep Learning for Self-Driving Cars Model](https://devblogs.nvidia.com/deep-learning-self-driving-cars/). It consists of 5 convolutional layers and 4 fully connected layers.
 
 The model includes RELU layers to introduce nonlinearity, and the data is normalized in the model using a Keras lambda layer (code line 75). 
 
@@ -77,11 +77,11 @@ The overall strategy for deriving a model architecture was to test out known con
 
 My first step was to use the Keras example mnist DNN. I thought this model might be appropriate because it was built to classify images. Yet after getting bad results with it, I switched to the original LeNet architecture (as shown in the course).
 
-In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set. To combat the overfitting, I modified the model I added a dropout layer. This way I was manage to get a very usable model which almost completed the circuit. Its sole problem was identifying the dirt rode edge, which led to the car driving off-road.
+In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set. To combat the overfitting, I modified the model and added a dropout layer. This way I was manage to get a very usable model which almost completed the circuit. Its sole problem was identifying the dirt rode edge (see image below), which led to the car driving off-road.
 
 ![alt text][image4]
 
-I managed to solve this issue by switching to a more complex architecture, the nVidia End2End DNN as presented in the classroom and improving it with 4 dropout layers.
+I managed to solve this issue by switching to a more complex architecture, [the nVidia End2End DNN](https://devblogs.nvidia.com/deep-learning-self-driving-cars/) as presented in the classroom and improving it with 4 dropout layers.
 
 At the end of the process, the vehicle is able to drive autonomously around the track without leaving the road. The video run1.mp4 demonstrates this.
 
@@ -114,10 +114,7 @@ Here is a visualization of the architecture:
 
 #### 3. Creation of the Training Set & Training Process
 
-To capture good driving behavior, I first recorded two laps on track one using center lane driving. Here is an example image of center lane driving:
-
-Then I repeated this process on track two in order to get more data points.
-
+To capture good driving behavior, I first recorded two laps on track one while driving in the center of the lane, but also cutting corners from time to time.
 I also augmented the data set by also including the left and right camera images as well as flipping all images (see example below). This yielded me with 10518 samples for the first track. The set was split 80-20 for training and validation.
 
 ![alt text][image2]
