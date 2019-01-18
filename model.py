@@ -95,7 +95,7 @@ def create_model():
 
 ################################
 # MAIN
-path = './data'
+path = 'C:\\Users\\damia\\Desktop\\data'
 samples = prepare_data(path)
 train_samples, validation_samples = train_test_split(samples, test_size=0.2)
 
